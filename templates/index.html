@@ -35,6 +35,7 @@ tr:nth-child(even) {
     <th>Date_of_birth</th>
     <th>status</th>
     <th>edit</th>
+    <th>Class</th>
   </tr>
 {% for data in dataset %}
   <tr>  
@@ -46,6 +47,7 @@ tr:nth-child(even) {
       <td>{{data.email}}</td> 
       <td>{{data.Date_of_birth}}</td> 
       <td>{{data.status}}</td>    
+      <td>{{data.student_class}}</td>    
       <td>  
         <a href="/data/{{ data.id }}/update"><span>Edit</span></a>
         </td>   

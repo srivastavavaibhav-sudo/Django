@@ -166,16 +166,15 @@
 
         <label for="cars">Choose a class:</label>
         
-        <select name="cars" id="cars">
-          <option>
-          {% for data in class %}
-                {{ data.class_name }}             
-          {% endfor %}
-        </option>
-        </select>
-      
-        
-        
+        <select name="all_class" id="cars">
+          <div>
+            {% for data in class %}
+            <option>
+              {{ data.class_name }}             
+            </option>  
+            {% endfor %}
+          </div>
+        </select>        
         <label for="name"><i ></i>Agree to terms and conditions</label>
         <input type="checkbox" name="status" id="name" placeholder="Status" >
 
@@ -189,6 +188,3 @@
   </body>
 </html>
 
-{% for data in class %}
-    {{ data.class_name }}
-{% endfor %}

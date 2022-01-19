@@ -20,9 +20,8 @@ def Add_class(request):
 
 def Create(request):
     data = Stream.objects.all()
-    stu = {
-    "class": data
-        }
+    stu = {"class": data}
+
     if request.method == "POST":
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
@@ -33,7 +32,7 @@ def Create(request):
         status = request.POST['status']
         password = request.POST['password']
         image = request.POST['image']
-        # all_class = Stream.objects.all()
+        all_class = request.POST['all_class']
         student_data = Student(first_name=first_name,
                                 last_name=last_name,
                                 phone=phone, 
@@ -43,9 +42,10 @@ def Create(request):
                                 status=status,
                                 password=password,
                                 image=image,
+                                student_class=all_class
                                 )
         student_data.save()
-        return redirect('std_detail/')    
+        return redirect('login/')    
     return render(request, 'stud_create.html', stu)
 
 
@@ -57,40 +57,42 @@ def Retrieve_ListView(request):
 
 
 def UpdateView(request,_id):
-    try:
-        old_data = get_object_or_404(Student,id =_id)
-    except Exception:
-        raise Http404('Does Not Exist')
- 
-    if request.method =='POST':
-        form =CreateStudentForm(request.POST, instance =old_data)
- 
-        if form.is_valid():
-            form.save()
-            return redirect(f'/std_detail')
-     
+    old_data = Student.objects.get(id = _id)
+    form =CreateStudentForm(request.POST, instance =old_data)
+    
+    if form.is_valid():
+        form.save()
+        return redirect(f'/std_detail')
+        
     else:
- 
+    
         form = CreateStudentForm(instance = old_data)
         context ={
-            'form':form
-        }
+                'form':form
+                }
         return render(request,'update.html',context)    
 
 
 
-
-
-def login(request, id):
-    check_user = Student.objects.get(id=id)
-    first_name = request.POST.get('first_name', False)
-    password = request.POST.get('password', False)
-    user = Student(first_name==first_name , password==password)
-    if user:
-        print("vaibhav")
-    else:
-        print("mohit")
-
-    return render (request, 'login.html')                
+def login(request):
+    
+    first_name = request.POST.get('first_name')
+    password = request.POST.get('password')
+    print(first_name,password)
+    return render(request, 'login.html')
+    # first_name = request.POST['first_name']
+    # password = request.POST['password']
+    # print(first_name,password)
+    # from django.contrib import auth
+    # # user = auth.authenticate(first_name=first_name , password=password)
+    # user = Student(first_name=first_name , password=password)
+    # print(user)
+    # if user is not None:
+    #     return redirect('std_detail/')
+    # else:
+    #     # return redirect ('/')       
+    #     return render (request, 'login.html')                
 
    
+
+ 

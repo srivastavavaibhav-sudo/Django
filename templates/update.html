@@ -1,4 +1,4 @@
-
+<!-- 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,10 +10,16 @@
 </head>
 <body>
     
-    <form method="post">
+    <form method="post"  action="data/<int:_id>/update">
         {% csrf_token %}
         {{form.as_p}}
         <input type="submit" value = "Update">
     </form>
 </body>
-</html>
+</html> -->
+
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value = "Update">
+</form>
