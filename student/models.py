@@ -1,6 +1,7 @@
 from django.db import models
 
 # Create your models here.
+# model for class
 class Stream(models.Model):
     class_name = models.CharField(max_length=100)
 
@@ -19,8 +20,9 @@ class Student(models.Model):
     Date_of_birth = models.CharField(max_length=20)
     status = models.CharField(max_length=20, default=False)
     password = models.CharField(max_length=20, blank=True)    
-    image = models.CharField(max_length=100) #Charfield is used for storing url of AWS image data that's why i used Charfield.
+    image = models.CharField(max_length=100) #Charfield is used for storing url of AWS image data . that's why i used Charfield.
     student_class = models.CharField(max_length=20)
+    is_active = models.BooleanField(default=False)
 
 
     def __str__(self):

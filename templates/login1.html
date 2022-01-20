@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Class</title>
+    <title>Log In</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <style>
@@ -132,19 +132,33 @@
   </head>
   <body>
     <div class="main-block">
-      <h1>class</h1>
-      <form method="POST" action="">
+      <h1>Student Login</h1>
+      <form method="POST" >
         {% csrf_token %}
         <hr>
         <label id="icon" for="name"><i class="fas fa-envel"></i></label>
-        <input type="text" name="class_name" id="name" placeholder="Enter Class Name" required/>
+        <input type="text" name="first_name" id="name" placeholder="First name" required/>
+        <label id="icon" for="name"><i class="fas fa-envel"></i></label>
+        <input type="password" name="password" id="name" placeholder="password" required/>
         <hr>
+        
+        {% if messages %}
+          <ul class="messages">
+            {% for message in messages %}
+              <li class="{{ message.tags }} alert alert-danger ">{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+
         <div class="btn-block">
-          <button type="submit" href="/">Submit</button>
-          <a href="/create"><span>
-            Student Registation</span></a>
+          <button type="submit" > Sign In 
+          </button>
         </div>
+       
       </form>
+     
     </div>
   </body>
+  
 </html>
