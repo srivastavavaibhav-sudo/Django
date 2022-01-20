@@ -1,6 +1,6 @@
 # Django
 
-# IN This project, I created School Management System using django sqlite and django  with langauge python and HTML.
+ IN This project, I created School Management System using django sqlite and django  with langauge python and HTML.
 
 for run :
 
@@ -44,5 +44,5 @@ Note : Before login student , Please change is_active status from admin site(for
 
 
 
-# You can login with first_name = vaibhav and password = vaibhav and check it .
+ You can login with first_name = vaibhav and password = vaibhav and check it .
 
