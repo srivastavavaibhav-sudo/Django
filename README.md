@@ -44,5 +44,5 @@ Note : Before login student , Please change is_active status from admin site(for
 
 
 
- You can login with first_name = vaibhav and password = vaibhav and check it .
+ 
 
